@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>checkList</title>
+    <style>
+        *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#824859,#d14d4d,#bd058f);
+    color:white;
+    overflow-x:hidden;
+}
+
+/* Animated Background */
+
+body::before{
+    content:'';
+    position:fixed;
+    width:200%;
+    height:200%;
+    background:
+    radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
+    background-size:40px 40px;
+    animation:bgMove 25s linear infinite;
+    z-index:-2;
+}
+
+@keyframes bgMove{
+    from{
+        transform:translate(0,0);
+    }
+    to{
+        transform:translate(-100px,-100px);
+    }
+}
+    .contract-section {
+    text-align: center;
+    padding: 80px 20px;
+    width: 95%;
+    max-width: 750px;
+    margin: 40px auto;
+    background: rgba(11, 44, 120, 0.6);
+    border: 1px solid #637ebd;
+    border-radius: 35px;
+    box-shadow: 0 0 30px rgba(200, 180, 105, 0.5);
+    position: relative;
+}
+.contract-section h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.0rem;
+    color: #cc8915;
+    margin-bottom: 15px;
+}
+.contract-card {
+    background: rgba(20, 136, 105, 0.482);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: left;
+    border: 1px solid rgba(26, 126, 51, 0.307);
+    line-height: 1.8;
+    font-size: 1.05rem;
+    margin-bottom: 30px;
+}
+.contract-card h4 {
+    color: #1a0146;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+.contract-btn-container {
+    position: relative;
+    height: 120px;
+    margin-top: 20px;
+}
+.btn-agree {
+    padding: 15px 35px;
+    background: linear-gradient(45deg, #b9b41e, #14b827b6);
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(55, 194, 48, 0.4);
+    transition: 0.3s;
+    display: inline-block;
+    font-family: inherit;
+}
+.btn-agree:hover {
+    transform: scale(1.05);
+}
+.btn-escape {
+    padding: 12px 25px;
+    background: #ef4444;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    position: absolute;
+    transition: left 0.15s ease, top 0.15s ease;
+    font-family: inherit;
+}
+
+    </style>
+</head>
+<body>
+
+<!-- --- HIGH-ENERGY INTERACTIVE BESTIE UPGRADE CONTRACT --- -->
+<section class="contract-section" id="contractArea">
+    <h2>⚡ Internet Friendship User Manual 📜</h2>
+
+<p style="color: #cbd5e1; font-size: 1.1rem; margin-bottom: 20px;">
+Please maintain proper behavior to keep this random online connection alive 😭✨
+</p>
+
+<div class="contract-card">
+
+    <h4>Rule 1: Message Reply Standards 📲</h4>
+    <p>
+        Seen-zoning for 12 hours and then replying with “😂”
+        is unacceptable behavior 💀
+    </p>
+
+    <br>
+
+    <h4>Rule 2: Reel Reaction Duty 🎥🔥</h4>
+    <p>
+        Every reel sent must receive:
+        • a laugh  
+        • a reaction  
+        • or unnecessary commentary 😭
+    </p>
+
+    <br>
+
+    <h4>Rule 3: Random Disappearance Policy 👻</h4>
+    <p>
+        Vanishing suddenly is allowed only if you return
+        with gossip, memes, or funny screenshots.
+    </p>
+
+    <br>
+
+    <h4>Rule 4: Energy Expectations ✨</h4>
+    <p>
+        Maintain fun energy.
+        Act normal at your own risk 😤
+    </p>
+
+    <br>
+
+    <h4>Rule 5: Priority Treatment Agreement🤗 </h4>
+    <p>
+        If I send something funny,
+        fake laughing is still mandatory 😭
+    </p>
+
+    <h4>Rule 6: Streak Maintenance Protocol 🔥👻</h4>
+    <p>
+    Daily snaps are mandatory 😤  
+    Streak protection is now a shared responsibility.  
+    Missing streaks without warning may cause emotional damage😐
+    </p>
+</div>
+
+    <div class="contract-btn-container">
+        <button class="btn-agree" id="agreeBtn">LOCK IT IN! We Are friends from Now On 🥂🎉</button>
+        <button class="btn-escape" id="escapeBtn" style="left: 60%; top: 20px;">Abort Mission & Go Ghost 👻❌</button>
+    </div>
+</section>
+<script>
+// Final agreement trigger
+document.getElementById('agreeBtn').addEventListener('click', () => {
+    confetti({
+        particleCount: 400,
+        spread: 2000,
+        origin: { y: 0.6 }
+    });
+    alert("🚀 SYSTEM SYSTEM LOCK-IN SUCCESSFUL!!! \n\nBoom! The Snapchat trial is over. You are now officially locked into an unhinged, high-tier best friendship for the next 99 years. Go celebrate your birthday like an absolute legend! 🔥🥳💥🎉");
+});
+
+/* --- ESCAPE BUTTON CONTRACT PRANK LOGIC --- */
+const escapeBtn = document.getElementById('escapeBtn');
+const contractArea = document.getElementById('contractArea');
+
+function moveButton() {
+    const areaWidth = contractArea.clientWidth - escapeBtn.clientWidth - 40;
+    const areaHeight = 100; 
+    
+    const randomX = Math.max(10, Math.floor(Math.random() * areaWidth));
+    const randomY = Math.max(10, Math.floor(Math.random() * areaHeight));
+    
+    escapeBtn.style.left = randomX + "px";
+    escapeBtn.style.top = randomY + "px";
+}
+
+escapeBtn.addEventListener('mouseenter', moveButton);
+escapeBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    moveButton();
+});
+
+</script>
+
+</body>
+</html>
